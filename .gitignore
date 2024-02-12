@@ -1,0 +1,6 @@
+jellyseerr/config/
+prowlarr/config/
+qbittorrent/config/
+radarr/config/
+sonarr/config/
+pihole-unbound/.env
