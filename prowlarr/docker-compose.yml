@@ -9,7 +9,13 @@ services:
       - TZ=Europe/Belgrade
     volumes:
       - ./config:/config
+    networks:
+      - pihole-unbound_default
+    dns:
+      - 172.19.0.1
     ports:
       - 9696:9696
     restart: unless-stopped
-
+networks:
+  pihole-unbound_default:
+    external: true

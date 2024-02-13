@@ -10,6 +10,13 @@ services:
       - LOG_HTML=${LOG_HTML:-false}
       - CAPTCHA_SOLVER=${CAPTCHA_SOLVER:-none}
       - TZ=Europe/Belgrade
+    networks:
+      - pihole-unbound_default     
+    dns:
+      - 172.19.0.1
     ports:
       - "${PORT:-8191}:8191"
     restart: unless-stopped
+networks:
+  pihole-unbound_default:
+    external: true

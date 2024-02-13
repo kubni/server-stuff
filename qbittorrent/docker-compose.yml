@@ -11,6 +11,10 @@ services:
       - QBT_WEBUI_PORT=8080
       - TZ=Europe/Belgrade
     image: qbittorrentofficial/qbittorrent-nox:latest
+    networks:
+      - pihole-unbound_default
+    dns:
+      - 172.19.0.1
     ports:
       - 6881:6881/tcp
       - 6881:6881/udp
@@ -23,3 +27,6 @@ services:
     volumes:
       - ./config:/config
       - /mnt/external-hdd/shared/downloads:/downloads
+networks:
+  pihole-unbound_default:
+    external: true

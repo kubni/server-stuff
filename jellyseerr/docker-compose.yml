@@ -6,8 +6,15 @@ services:
        environment:
             - LOG_LEVEL=debug
             - TZ=Europe/Belgrade
+       networks:
+         - pihole-unbound_default
+       dns:
+         - 172.19.0.1
        ports:
             - 5055:5055
        volumes:
             - ./config:/app/config
        restart: unless-stopped
+networks:
+  pihole-unbound_default:
+    external: true

@@ -11,7 +11,13 @@ services:
       - ./config:/config
       - /mnt/external-hdd/shared/media/Series:/tv #optional
       - /mnt/external-hdd/shared/downloads:/downloads #optional
+    networks:
+      - pihole-unbound_default
+    dns:
+      - 172.19.0.1
     ports:
       - 8989:8989
     restart: unless-stopped
-
+networks:
+  pihole-unbound_default:
+    external: true
